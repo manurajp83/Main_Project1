@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 't.css' %}">
+
+  </head>
+  <body>
+    
+    {% include "admin2.html" %}
+  
+    <!-- END nav -->
+    <center>
+    
+        <table id="customers">
+            <tr>
+                <th>
+                  Job name
+                </th>
+                <th>
+                   Qualification
+                </th>
+                <th>
+                    Experience
+                </th>
+                 <th>
+                    No. Of Vacancy
+                 </th>
+                 <th>
+                    Application_lastdate
+                 </th>
+               <th>
+                Status
+               </th>
+               <th>
+                Apply
+               </th>
+            
+            </tr>
+            {% for c in data %}
+            <tr>
+                <td>{{c.jobid.jobname}}</td>
+                <td>{{c.qualification}}</td>
+                <td>{{c.experience}}</td>
+                <td>{{c.numberofvacancy}}</td>
+                <td>{{c.application_lastdate}}</td>
+                <td>{{c.status}}</td> 
+                <td><a href="/applyjob/{{c.vacancy_id}}">APPLY</a></td>         
+                
+            
+                {% endfor %}
+            </tr>
+        </table>
+        </center>
+    </body>
+</html>

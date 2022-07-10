@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 't.css' %}">
+
+  </head>
+  <body>
+    
+    {% include "admin1.html" %}
+  
+    <!-- END nav -->
+    <center>
+        <table id="customers">
+            <tr>
+                <th>
+            Staff name
+                </th>
+                <th>
+                    Number of Days
+                </th>
+                <th>
+                    Applicationdate
+                </th>
+               <th>Reason</th>
+               <th>
+                Status
+            </th>
+            </tr>
+            {% for c in data1 %}
+            <tr>
+                <td>{{c.staff_id.name}}</td>
+                <td>{{c.numberofdays}}</td>
+                <td>{{c.application_date}}</td>
+                <td>{{c.reason}}</td>
+                <td>{{c.status}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        </center>
+    </body>
+</html>

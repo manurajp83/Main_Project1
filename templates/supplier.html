@@ -1,0 +1,46 @@
+<html>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 't.css' %}">
+</head>
+<body>
+    {% include "admin1.html" %}
+    <center>
+        <table id="customers">
+            <tr>
+                <th>
+            Material name
+                </th>
+                <th>
+                   Supplier name
+                </th>
+                <th>
+                   Address
+                 </th>
+                 <th>
+                    Phone
+                 </th>
+                 <th>
+                    Email
+                 </th>
+               <th></th>
+
+            </tr>
+            {% for c in item %}
+            <tr>
+                <td>{{c.materialid.materialname}}</td>
+                <td>{{c.name}}</td>
+                <td>{{c.address}}</td>
+                <td>{{c.phone}}</td>
+                <td>{{c.email}}</td>
+               
+               
+              
+                <td><a href="/verifysupplier/{{c.supplierid}}">Verify</a></td>
+
+            
+                {% endfor %}
+            </tr>
+        </table>
+        </center>
+    </body>
+</html>

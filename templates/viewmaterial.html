@@ -1,0 +1,35 @@
+<html>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 't.css' %}">
+</head>
+<body>
+   
+    {% include "public.html" %}
+    <center>
+        <table id="customers">
+            <h1>RAW MATERIALS</h1>
+            <tr>
+                <th>
+            Material name
+                </th>
+                <th>
+                    Description
+                </th>
+              
+
+            </tr>
+            {% for c in item %}
+            <tr>
+                <td>{{c.materialname}}</td>
+                <td>{{c.description}}</td>
+               
+                
+                
+
+            
+                {% endfor %}
+            </tr>
+        </table>
+        </center>
+    </body>
+</html>

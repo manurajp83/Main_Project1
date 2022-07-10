@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <h1>h</h1>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'divis.css' %}">
+
+  </head>
+  <body>
+    
+    {% include "admin1.html" %}
+  <center>
+    <!-- END nav -->
+        <div id="view">
+            <div>
+                NAME     :{{data1.name}}<br><br>
+                ADDRESS  :{{data1.address}}<br><br>
+                SALARY   :{{data1.basic_salalary}}<br><br>
+                ALLOWANCE:{{data2}}<br><br>
+                REDUCTION:{{data3}}<br><br>
+                NETSALARY:{{data4}}   <br>  <br>         
+                </div>
+            </div>
+          </center>
+    </body>
+</html>

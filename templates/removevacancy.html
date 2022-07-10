@@ -1,0 +1,49 @@
+<html>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 't.css' %}">
+</head>
+<body>
+    {% include "admin1.html" %}
+    <center>
+        <table id="customers">
+            <tr>
+                <th>
+                  Job name
+                </th>
+                <th>
+                   Qualification
+                </th>
+                <th>
+                    Experience
+                </th>
+                 <th>
+                    No. Of Vacancy
+                 </th>
+                 <th>
+                    Application_lastdate
+                 </th>
+               <th>
+                Status
+               </th>
+               <th>
+                Delete
+               </th>
+
+            </tr>
+            {% for c in item %}
+            <tr>
+                <td>{{c.jobid.jobname}}</td>
+                <td>{{c.qualification}}</td>
+                <td>{{c.experience}}</td>
+                <td>{{c.numberofvacancy}}</td>
+                <td>{{c.application_lastdate}}</td>
+                <td>{{c.status}}</td>          
+                <td><a href="/removevacancy1/{{c.vacancy_id}}">Remove</a></td>
+                
+            
+                {% endfor %}
+            </tr>
+        </table>
+        </center>
+    </body>
+</html>

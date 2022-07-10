@@ -1,0 +1,69 @@
+<html>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 't.css' %}">
+</head>
+<body>
+    {% include "admin1.html" %}
+    <center>
+        <table id="customers">
+            <tr>
+                <th>
+                  Applicant Name
+                </th>
+                <th>
+                    Designation
+                </th>
+                <th>
+                    Date Of Join
+                </th>
+                <th>
+                   Qualification
+                </th>
+                <th>
+                    Experience
+                </th>
+                 <th>
+                    Address
+                 </th>
+                 <th>
+                    Phone
+                 </th>
+                 <th>
+                    Email
+                 </th>
+                 <th>
+                    Salary
+                 </th>
+                 <th>
+                    Remark
+                 </th>
+               <th>
+                Status
+               </th>
+               <th>
+        Leave
+               </th>
+
+            </tr>
+            {% for c in data1 %}
+            <tr>
+                <td>{{c.name}}</td>
+                <td>{{c.jobid.jobname}}</td>
+                <td>{{c.date_of_join}}</td>
+                <td>{{c.qualification}}</td>
+                <td>{{c.experience}}</td>
+                <td>{{c.address}}</td>
+                <td>{{c.phone}}</td>
+                <td>{{c.email}}</td>
+                <td>{{c.basic_salalary}}</td>
+                <td>{{c.remark}}</td>
+                <td>{{c.status}}</td>          
+                <td><a href="/viewleave2/{{c.staff_id}}">View Leave</a></td>
+                
+            
+                {% endfor %}
+            </tr>
+        </table>
+        </center>
+    </body>
+</html>

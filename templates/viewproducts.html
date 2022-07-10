@@ -1,0 +1,71 @@
+<html>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 't.css' %}">
+</head>
+<body>
+    {% include "public.html" %}
+    <center>
+    <form action="/search/" method="post" name="f3" style="margin-top:10px;">
+        {% csrf_token %}
+        
+               
+          
+                <input type="text"  id="t1" placeholder="search" name="search" required>
+               
+          
+                    <button type="submit" class="btn btn-primary">Search</button>
+               
+   </form>
+   </center>
+   <br>
+  
+    <center>
+        <h1>PRODUCTS</h1>
+        <table id="customers">
+            <tr>
+                
+                <th>
+                    Name
+                </th>
+                <th>
+                    Size
+                </th>
+                <th>
+                    Price
+                </th>
+                <th>
+                  Color
+                </th>
+                <th>
+                   Model
+                </th>
+                <th>
+                    Stock_qty
+                </th>
+                <th>
+                    Photo
+                </th>
+               <th></th>
+
+            </tr>
+            {% for c in items %}
+            <tr>
+                
+                <td>{{c.name}}</td>
+                <td>{{c.size}}</td>
+                <td>{{c.price}}</td>
+                <td>{{c.color}}</td>
+                <td>{{c.model}}</td>
+                <td>{{c.stockquantity}}</td>
+                <td><img src="{{c.photo}}" width="100" height="100"></td>
+              
+
+                <td>
+                    <a href="/delete2/{{c.product_id}}">delete</a></td>
+                
+                {% endfor %}
+            </tr>
+        </table>
+    
+    </body>
+</html>

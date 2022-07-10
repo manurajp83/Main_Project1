@@ -1,0 +1,47 @@
+<html>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 't.css' %}">
+</head>
+<body>
+    {% include "admin1.html" %}
+    <center>
+        <table id="customers">
+            <tr>
+                <th>
+            Material name
+                </th>
+                <th>
+                    Supplier name
+                </th>
+                <th>
+                    Quantity
+                </th>
+               <th>Requirement</th>
+               <th>
+                Orderdate
+            </th>
+            <th>
+                Month
+            </th>
+            <th>Year</th>
+            </tr>
+            {% for c in data1 %}
+            <tr>
+                <td>{{c.materialid.materialname}}</td>
+                <td>{{c.supplierid.name}}</td>
+                <td>{{c.quantity}}</td>
+                <td>{{c.requirements}}</td>
+                <td>{{c.orderdate}}</td>
+                <td>{{c.month}}</td>
+                <td>{{c.year}}</td>        
+                
+
+            </tr>
+                
+            
+                {% endfor %}
+            </tr>
+        </table>
+        </center>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+    <body>
+        <table border="1">
+            <tr>
+                <th>
+                    vacancy number
+                </th>
+                <th>
+                    job name
+                </th>
+                
+                
+
+            </tr>
+            {% for c in h %}
+            <tr>
+                <td>{{c.vacancy_number}}</td>
+                <td>{{c.job_name}}</td>
+                
+                <td><a href="/delvac/{{c.id}}">Delete</a></td>
+                
+
+            
+                {% endfor %}
+            </tr>
+        </table>
+    </body>
+</html>

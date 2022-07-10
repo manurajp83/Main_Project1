@@ -1,0 +1,45 @@
+<html>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 't.css' %}">
+</head>
+<body>
+    {% include "admin1.html" %}
+    <center>
+        <table id="customers">
+            <tr>
+                <th>
+            Staff name
+                </th>
+                <th>
+                    Number of Days
+                </th>
+                <th>
+                    Applicationdate
+                </th>
+               <th>Reason</th>
+               <th>
+                Status
+            </th>
+            <th>Accept</th>
+            <th>Reject</th>
+            </tr>
+            {% for c in data %}
+            <tr>
+                <td>{{c.staff_id.name}}</td>
+                <td>{{c.numberofdays}}</td>
+                <td>{{c.application_date}}</td>
+                <td>{{c.reason}}</td>
+                <td>{{c.status}}</td>
+                <td><a href="/acceptleave/{{c.Leave_id}}">Accept</a></td>         
+                <td><a href="/rejectleave/{{c.Leave_id}}">Reject</a></td>         
+                
+
+            </tr>
+                
+            
+                {% endfor %}
+            </tr>
+        </table>
+        </center>
+    </body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {%load static%}
+    <title>JobPortal - Free Bootstrap 4 Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    
+
+    <link rel="stylesheet" href="{% static 'css1/open-iconic-bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css1/animate.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'css1/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css1/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css1/magnific-popup.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css1/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css1/ionicons.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css1/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css1/jquery.timepicker.css' %}">
+
+    
+    <link rel="stylesheet" href="{% static 'css1/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css1/icomoon.css' %}">
+    <link rel="stylesheet" href="{% static 'css1/style.css' %}">
+
+    <script>
+
+      function valid()
+{
+
+if(item.designation.value=="")
+{
+ alert("**Select Designation**"); 
+ item.designation.focus();
+ return false;
+}
+if(item.name.value=="")
+{
+  alert("**Enter Name");
+  item.name.focus();
+  return false;
+}
+
+
+if(item.address.value=="")
+{
+  alert("**Enter Address");
+  item.address.focus();
+  return false;
+}
+
+if(item.qualification.value=="")
+  {
+     alert("**Enter Qualification**"); 
+     item.qualification.focus();
+     return false;
+  }
+
+  if(item.experience.value=="")
+  {
+     alert("**Enter Experience**"); 
+     item.experience.focus();
+     return false;
+  }
+
+var a=item.phone.value;
+            if(item.phone.value=="")
+            {
+               alert("**Enter your phonenumber**"); 
+               item.phone.focus();
+               return false;
+            }
+            
+            if(isNaN(a))
+            {
+                alert("**phonenumber must be in numbers");
+                item.phone.focus();
+                return false;
+            }
+            if(a.length<10)
+            {
+             alert("**Phonenumber must contain 10 numbers");
+             item.phone.focus();
+            return false;
+            }
+            if(a.length>10)
+            {
+             alert("**Phonenumber must contain 10 numbers");
+             item.phone.focus();
+            return false;
+            }
+
+
+
+            if(item.email.value=="")
+            {
+               alert("**Enter your Email**"); 
+               item.email.focus();
+               return false;
+            }
+            var regularExpression = new RegExp("^[a-z]+(\.[a-z0-9_\+-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*\.([a-z]{2,4})$");
+            if (!regularExpression.test(item.email.value))
+            {
+                alert("Enter a valid Email ID.For example:'name@gmail.com'..");
+                item.email.focus();
+                return false;
+            }
+
+            if(item.date_of_join.value=="")
+  {
+     alert("**Enter date of join**"); 
+     item.date_of_join.focus();
+     return false;
+  }
+
+  if(item.basic_salary.value=="")
+{
+  alert("**Enter Salary");
+  item.basic_salary.focus();
+  return false;
+}   
+return true;
+
+    }
+  </script>
+
+  </head>
+  <body>
+    
+    {% include "navbar.html" %}
+  
+    <!-- END nav -->
+    
+    <div class="hero-wrap js-fullheight" style="background-image: url('{% static "images/bg22.jpg" %}');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
+          <div class="col-xl-10 ftco-animate mb-5 pb-5" data-scrollax=" properties: { translateY: '70%' }">
+          
+    
+        
+                    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                           
+
+                      <h1>ADD STAFF</h1>
+							
+						
+					<form class="shadow box box-success p-3" method="POST" onsubmit="return valid()" action="/staffinsert/" name="item" enctype="multipart/form-data">
+						{% csrf_token %}
+                            <div class="form-row">
+                              <div class="form-group col-md-4">
+							 
+                                <label for="inputSl">Name</label>
+                                <input type="text" class="form-control"  name="name"  >
+                              </div>
+
+
+                              <div class="form-group col-md-4">
+                                <label for="inputRoomNo">Designation</label>
+                                <select class="form-control" name="designation">
+                                    {% for c in vac %}
+                                   <option value="{{ c.jobid }}">{{ c.jobname }}</option>
+                                   {% endfor %}
+                            </select>
+                          </div>
+
+
+  
+                              <div class="form-group col-md-4">
+                                    <label for="inputDate">Date of join</label>
+                                    <input type="date" class="form-control" name="date_of_join">
+
+
+
+
+                                
+                              </div>
+                              <div class="form-group col-md-4">
+                                <label for="inputDate">Qualification</label>
+                                <input type="text" class="form-control" name="qualification" value="{{vac.qualification}}" >
+                            
+                          </div>
+                              <div class="form-group col-md-4">
+                                <label for="inputDate">Experience</label>
+                                <input type="number" class="form-control"  name="experience" value="{{vac.experience}}">
+                            
+                          </div>
+                         
+                          <div class="form-group col-md-4">
+                            <label for="inputDate">Address</label>
+                            
+                            <textarea rows="2"  class="form-control" name="address" value="{{vac.address}}">
+                              {{vac.address}}
+                            </textarea>
+                      </div>
+                     
+                  <div class="form-group col-md-4">
+                    <label for="inputDate">Phone</label>
+                    <input type="number" class="form-control"  name="phone" value="{{vac.phone}}" maxlength="10" pattern="\d{10}">
+                
+              </div>  
+              <div class="form-group col-md-4">
+                <label for="inputDate">Email ID</label>
+                <input type="text"  class="form-control"  name="email" value="{{vac.email}}">
+            
+         
+  </div>
+  <div class="form-group col-md-4">
+    <!-- <label for="inputDate">Photo</label> -->
+    <class="form-control"  name="photo">
+
+</div>
+<div class="form-group col-md-4">
+    <label for="inputDate">Basic salary</label>
+    <input type="text" class="form-control"  name="basic_salary" value="">
+
+</div>
+                            </div>
+                            
+                           
+
+                        
+
+                       
+                       
+                    
+                    
+                            
+                        
+                            
+             <button type="submit" class="btn btn-primary">appoint</button>
+                            
+                          </form>
+                        </main>
+       
+                    
+              
+		        </div>
+          </div>
+        </div>
+      
+
+
+  
+  <script src="{% static 'js1/jquery.min.js' %}"></script>
+  <script src="{% static 'js1/jquery-migrate-3.0.1.min.js' %}"></script>
+  <script src="{% static 'js1/popper.min.js' %}"></script>
+  <script src="{% static 'js1/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js1/jquery.easing.1.3.js' %}"></script>
+  <script src="{% static 'js1/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'js1/jquery.stellar.min.js' %}"></script>
+  <script src="{% static 'js1/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'js1/jquery.magnific-popup.min.js' %}"></script>
+  <script src="{% static 'js1/aos.js' %}"></script>
+  <script src="{% static 'js1/jquery.animateNumber.min.js' %}"></script>
+  <script src="{% static 'js1/bootstrap-datepicker.js' %}"></script>
+  <script src="{% static 'js1/jquery.timepicker.min.js'  %}"></script>
+  <script src="{% static 'js1/scrollax.min.js' %}"></script>
+  <script src="{% static 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false' %}"></script>
+  <script src="{% static 'js1/google-map.js' %}"></script>
+  <script src="{% static 'js1/main.js' %}"></script>
+            </div>
+
+    
+  </body>
+</html>

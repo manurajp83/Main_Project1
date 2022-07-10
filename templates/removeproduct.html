@@ -1,0 +1,56 @@
+<html>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 't.css' %}">
+</head>
+<body>
+    {% include "admin1.html" %}
+    <center>
+        <h1>PRODUCTS</h1>
+        <table id="customers">
+            <tr>
+                
+                <th>
+                    Name
+                </th>
+                <th>
+                    Size
+                </th>
+                <th>
+                    Price
+                </th>
+                <th>
+                  Color
+                </th>
+                <th>
+                   Model
+                </th>
+                <th>
+                    Stock_qty
+                </th>
+                <th>
+                    Photo
+                </th>
+               <th></th>
+
+            </tr>
+            {% for c in item %}
+            <tr>
+                
+                <td>{{c.name}}</td>
+                <td>{{c.size}}</td>
+                <td>{{c.price}}</td>
+                <td>{{c.color}}</td>
+                <td>{{c.model}}</td>
+                <td>{{c.stockquantity}}</td>
+                <td><img src="{{c.photo}}" width="100" height="100"></td>
+              
+
+                <td>
+                    <a href="/delete2/{{c.product_id}}">delete</a></td>
+                
+                {% endfor %}
+            </tr>
+        </table>
+    
+    </body>
+</html>

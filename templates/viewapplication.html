@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 't.css' %}">
+
+  </head>
+  <body>
+    
+    {% include "admin1.html" %}
+  
+    <!-- END nav -->
+    <center>
+
+
+        <table id="customers">
+            <tr>
+                <th>
+                  Job name
+                </th>
+                <th>
+                    Applicant Name
+                </th>
+                <th>
+                Address
+                </th>
+                <th>
+                    Gender
+                </th>
+                <th>
+                    Date Of Birth
+                </th>
+                <th>
+                   Qualification
+                </th>
+                <th>
+                    Experience
+                </th>
+                 <th>
+                    Experience_history
+                 </th>
+                 <th>
+                    Phone
+                 </th>
+                 <th>
+                    Email
+                 </th>
+                 <th>
+                    Application date
+                 </th>
+               <th>
+                Remark
+               </th>
+               <th>
+                Appoint
+               </th>
+            
+            </tr>
+            {% for c in data %}
+            <tr>
+                <td>{{c.vacancy_id.jobid.jobname}}</td>
+                <td>{{c.applicant_name}}</td>
+                <td>{{c.address}}</td>
+                <td>{{c.gender}}</td>
+                <td>{{c.dob}}</td>
+                <td>{{c.qualification}}</td>
+                <td>{{c.experience}}</td>
+                <td>{{c.experience_history}}</td>
+                <td>{{c.phone}}</td>
+                <td>{{c.email}}</td>
+                <td>{{c.application_date}}</td>
+                <td>{{c.remark}}</td> 
+                <td><a href="/viewapply1/{{c.application_id}}">Appoint</a></td>         
+                
+            
+                {% endfor %}
+            </tr>
+        </table>
+        </center>
+    </body>
+</html>

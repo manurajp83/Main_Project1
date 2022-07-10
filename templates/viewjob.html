@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 't.css' %}">
+
+  </head>
+  <body>
+    
+    {% include "public.html" %}
+  
+    <!-- END nav -->
+    <center>
+        <table id="customers">
+            <tr>
+                <th>
+                  Job name
+                </th>
+                <th>
+                   Salary
+                </th>
+                <th>
+                    TA
+                </th>
+                 <th>
+                    DA
+                 </th>
+                 <th>
+                    HRA
+                 </th>
+               <th>
+                LIC
+               </th>
+               <th>
+                PF
+               </th>
+               <th>
+                Welfare
+               </th>
+               <th>
+                Vacancy
+               </th>
+
+            </tr>
+            {% for c in item %}
+            <tr>
+                <td>{{c.jobname}}</td>
+                <td>{{c.salary}}</td>
+                <td>{{c.TA}}</td>
+                <td>{{c.DA}}</td>
+                <td>{{c.HRA}}</td>
+                <td>{{c.LIC}}</td>
+                <td>{{c.PF}}</td>
+                <td>{{c.welfare}}</td>
+               
+               
+               
+                <td><a href="/viewvacancy/{{c.jobid}}">VIEW VACANCY</a></td>
+                
+            
+                {% endfor %}
+            </tr>
+        </table>
+        </center>
+    </body>
+</html>

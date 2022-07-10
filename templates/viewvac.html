@@ -1,0 +1,39 @@
+<html>
+    <body>
+        <h1>ADD CATEGORY</h1>
+        <table border=1>
+            <tr>
+                <th>
+                    vacancy number
+                </th>
+                <th>
+                    job name
+                </th>
+                <th>
+                    qualification
+                </th>
+                <th>
+                    experience
+                </th>
+                <th>
+                    application last date
+                </th>
+                
+
+            </tr>
+            {% for c in item %}
+            <tr>
+                <td>{{c.vacancy_number}}</td>
+                <td>{{c.job_name}}</td>
+                <td>{{c.qualification}}</td>
+                <td>{{c.experience}}</td>
+                <td>{{c.application_lastdate}}</td>
+                <td><a href="/jbapplyform/{{c.id}}">apply</a></td>
+                
+
+            
+                {% endfor %}
+            </tr>
+        </table>
+    </body>
+</html>
